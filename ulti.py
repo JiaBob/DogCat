@@ -14,6 +14,10 @@ else:
     shutil.rmtree('./' + log_path, ignore_errors=True)
     os.mkdir('./' + log_path)
 
+model_dir = "models"
+if not os.path.exists(model_dir):
+    os.makedirs(model_dir)
+
 writer = SummaryWriter(log_path)
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -52,7 +56,7 @@ def train(model, train_loader, val_loader, criterion, optimizer, train_size, epo
         if (epoch + 1) % 2 == 0:
             print("Epoch {} finished, current loss is {}, \
                   validation accuracy is {}".format(epoch + 1, epoch_loss, val_acc))
-            torch.save(model, './model/{}epoch_result'.format(epoch + 1))
+            torch.save(model, './{}/{}epoch_result'.format(model_dir, epoch + 1))
 
     return losses, acces, val_losses, val_acces
 
