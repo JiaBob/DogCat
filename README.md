@@ -4,6 +4,15 @@ The program uses compare two methods on the DogCat dataset (modified, 20000 trai
 
 The model is implemented by PyTorch with tensorboard for visualization. The only reason I put it on GitHub is that I have to use AWS instance to train it.
 
+Version & Requirements:
+
+```bash
+torch==0.4.0
+torchvision==0.2.1
+tensorflow==1.8.0
+tensorboardX==1.2
+```
+
 Run command below to check the parameter:
 
 ```shell
@@ -25,6 +34,8 @@ Training platform: AWS p2.xlarge (single k80 GPU)
 Training duration: simple CNN (50 epochs) takes 23 mins; pretrained (fix feature layers) ResNet18 (10 epochs) takes 10 mins.
 
 Accuracy: simple CNN gets 80% accuracy; pretrained ResNet18 gets 97.5% accuracy.
+
+
 
 
 
