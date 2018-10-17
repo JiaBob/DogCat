@@ -15,19 +15,23 @@ import argparse
 parser = argparse.ArgumentParser(description='pytorch Dog VS Cat')
 parser.add_argument('--mode', type=str, default='normal',  choices=['normal', 'transfer'], metavar='M',
                     help='use transfer learning or not (default: normal)')
+parser.add_argument('--data', type=str, default='', metavar='D',
+                    help='specify the data folder that contains both training set and test set')
 
 args = parser.parse_args()
 mode = args.mode
+folder_path = args.data
 
 total_size = 20000
 val_size = 2000
 train_size = total_size - val_size
+test_size = 4000
 
 train_sampler = sampler.SubsetRandomSampler(range(train_size))
 val_sampler = sampler.SubsetRandomSampler(range(val_size))
 
-train_path = '.\Dog-data\dog-training\*.tif'
-test_path = '.\Dog-data\dog-test\*.tif'
+train_path = folder_path + './Dog-data/dog-training/*.tif'
+test_path = folder_path + './Dog-data/dog-test/*.tif'
 
 
 def transfer():
@@ -40,8 +44,8 @@ def transfer():
     test_data = DogCat(test_path, transform=transform)  # 4000
 
     train_loader = DataLoader(train_data, sampler=train_sampler, batch_size=100)
-    val_loader = DataLoader(train_data, sampler=val_sampler, batch_size=val_size)  # use single batch
-    test_loader = DataLoader(test_data, batch_size=4000)
+    val_loader = DataLoader(train_data, sampler=val_sampler, batch_size=200)  # use single batch may out of memory
+    test_loader = DataLoader(test_data, batch_size=200)  # use single batch may out of memory
 
     resnet = torchvision.models.resnet18(pretrained=True)
 
@@ -52,13 +56,13 @@ def transfer():
     resnet.fc = nn.Linear(features, 1)
 
     #model = torch.load('9epoch_result')
-    model = nn.Parallel(resnet.to(device))
+    model = nn.DataParallel(resnet).to(device)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))
-    optimizer = nn.DataParallel(optimizer)
-    loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size)
+    optimizer = nn.DataParallel(optim.Adam(model.parameters(), 1e-3, (0.9, 0.999)))
 
-    _, pred_acc = predict(test_loader, model, criterion)
+    loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size, val_size)
+
+    _, pred_acc = predict(test_loader, model, criterion, test_size)
     print(pred_acc)
 
 
@@ -76,14 +80,13 @@ def normal():
     val_loader = DataLoader(train_data, sampler=val_sampler, batch_size=val_size)  # use single batch
     test_loader = DataLoader(test_data, batch_size=4000)
 
-    model = model = nn.Parallel(ConvNet().to(device))
+    model = model = nn.DataParallel(ConvNet()).to(device)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))
-    optimizer = nn.DataParallel(optimizer)
+    optimizer = nn.DataParallel(optim.Adam(model.parameters(), 1e-3, (0.9, 0.999)))
 
-    loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size)
-    _, pred_acc = predict(test_loader, model, criterion)
-    print(pred_acc)
+    loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size, val_size, epochs=50)
+    _, pred_acc = predict(test_loader, model, criterion, test_size)
+    print('The test set accuracy is: {}'.format(pred_acc))
 
 
 if __name__ == '__main__':
