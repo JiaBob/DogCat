@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="cdc0b185-1d66-499a-8295-a1d73d5c9bc8" name="dogcat" url="http://18.223.184.184">
+        <fileTransfer host="18.223.184.184" port="22" privateKey="C:\Users\BOB\Desktop\spot-gpu" accessType="SFTP" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

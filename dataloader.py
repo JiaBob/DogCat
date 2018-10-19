@@ -9,13 +9,15 @@ class DogCat(Dataset):
         self.img_paths = glob.glob(path)
         self.cls = {'cat': 0, 'dog': 1}
         self.transforms = transform
+        print(self.img_paths[0])
 
     def __len__(self):
         return len(self.img_paths)
 
     def __getitem__(self, i):
         img_name = self.img_paths[i]
-        label = re.search(r'.*\\(.*)\.\d+', img_name).group(1)
+        label = re.search(r'.*/(.*)\.\d+', img_name).group(1)
+        print(img_name, label)
         img = Image.open(img_name)
         img = self.transforms(img)
         return img, self.cls[label]
