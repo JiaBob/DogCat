@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca7fdc12-1a75-4be5-85ea-8831b7ec4334" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/runs/log2/events.out.tfevents.1539944987.DESKTOP-KP6L31P" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dataloader.py" afterPath="$PROJECT_DIR$/dataloader.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/transfer.py" afterPath="$PROJECT_DIR$/transfer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ulti.py" afterPath="$PROJECT_DIR$/ulti.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +18,8 @@
       <file leaf-file-name="ulti.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ulti.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
+            <state relative-caret-position="-175">
+              <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -27,11 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="transfer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="transfer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/transfer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
+            <state relative-caret-position="450">
+              <caret line="84" column="66" lean-forward="false" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
@@ -39,7 +39,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dataloader.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dataloader.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dataloader.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
@@ -64,9 +64,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+        <option value="$PROJECT_DIR$/dataloader.py" />
         <option value="$PROJECT_DIR$/ulti.py" />
         <option value="$PROJECT_DIR$/transfer.py" />
-        <option value="$PROJECT_DIR$/dataloader.py" />
       </list>
     </option>
   </component>
@@ -416,7 +416,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -443,27 +443,7 @@
         <state relative-caret-position="485">
           <caret line="113" column="65" lean-forward="false" selection-start-line="113" selection-start-column="65" selection-end-line="113" selection-end-column="65" />
           <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ulti.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/transfer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="58" column="46" lean-forward="true" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
+            <element signature="e#0#12#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -474,6 +454,26 @@
           <caret line="16" column="109" lean-forward="false" selection-start-line="16" selection-start-column="109" selection-end-line="16" selection-end-column="109" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ulti.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-175">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/transfer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="84" column="66" lean-forward="false" selection-start-line="84" selection-start-column="66" selection-end-line="84" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
           </folding>
         </state>
       </provider>

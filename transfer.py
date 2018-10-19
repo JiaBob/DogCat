@@ -58,7 +58,7 @@ def transfer():
     #model = torch.load('9epoch_result')
     model = nn.DataParallel(resnet).to(device)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = nn.DataParallel(optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))).to(device)
+    optimizer = optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))
 
     loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size, val_size)
 
@@ -82,7 +82,7 @@ def normal():
 
     model = model = nn.DataParallel(ConvNet()).to(device)
     criterion = nn.BCEWithLogitsLoss()
-    optimizer = nn.DataParallel(optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))).to(device)
+    optimizer = optim.Adam(model.parameters(), 1e-3, (0.9, 0.999))
 
     loss, acc, val_losses, val_acces = train(model, train_loader, val_loader, criterion, optimizer, train_size, val_size, epochs=50)
     _, pred_acc = predict(test_loader, model, criterion, test_size)

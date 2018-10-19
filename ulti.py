@@ -45,7 +45,7 @@ def train(model, train_loader, val_loader, criterion, optimizer, train_size, val
                 out = model(img).squeeze()
                 loss = criterion(out, label)
                 loss.backward()
-                optimizer.module.step()  # only works when optimizer is inside nn.DataParallel
+                optimizer.step()
             loss_sum += loss
             correct += ((label - torch.sigmoid(out)).abs() <= 0.5).sum().item()
 
